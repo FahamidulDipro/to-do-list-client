@@ -17,7 +17,7 @@ const ToDo = () => {
     console.log(data);
   };
   return (
-    <div className="flex justify-center items-center mt-20">
+    <div className="flex justify-center items-start mt-20 h-screen ">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title justify-center mb-10">Add Works to do</h2>

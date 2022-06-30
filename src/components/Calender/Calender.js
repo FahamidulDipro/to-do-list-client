@@ -6,7 +6,7 @@ import "react-day-picker/dist/style.css";
 const Calender = () => {
   const [date, setDate] = useState(new Date());
   return (
-    <div className="flex justify-center items-center mt-20">
+    <div className="flex justify-center mt-20  h-screen">
       <DayPicker mode="single" selected={date} onSelect={setDate}></DayPicker>
     </div>
   );

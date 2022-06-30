@@ -8,6 +8,7 @@ import ToDo from './components/ToDo/ToDo';
 import Calender from './components/Calender/Calender';
 import NotFound from './components/NotFound/NotFound';
 import Edit from './components/Edit/Edit';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path='/edit/:taskId' element={<Edit></Edit>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
      </div>
   );
 }

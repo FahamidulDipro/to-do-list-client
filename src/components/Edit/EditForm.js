@@ -35,23 +35,25 @@ const EditForm = ({ preloadedValue }) => {
     console.log(data);
   };
   return (
-    <div className="flex justify-center items-center mt-20">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="card-title justify-center mb-10">Edit Task</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input
-              {...register("todoItem")}
-              type="text"
-              //   placeholder={`${selectedTask?.todoItem}`}
-              className="input input-bordered w-full max-w-xs"
-            />
-            <div className="card-actions justify-end">
-              <button className="btn bg-blue-700 w-full mt-5" type="submit">
-                Add
-              </button>
-            </div>
-          </form>
+    <div className="h-screen mt-20">
+      <div className="flex justify-center items-center mt-20">
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="card-title justify-center mb-10">Edit Task</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <input
+                {...register("todoItem")}
+                type="text"
+                //   placeholder={`${selectedTask?.todoItem}`}
+                className="input input-bordered w-full max-w-xs"
+              />
+              <div className="card-actions justify-end">
+                <button className="btn bg-blue-700 w-full mt-5" type="submit">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>

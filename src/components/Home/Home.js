@@ -3,7 +3,7 @@ import ToDoList from "../ToDoList/ToDoList";
 
 const Home = () => {
   return (
-    <div>
+    <div  className="h-screen mt-20">
       <ToDoList></ToDoList>
     </div>
   );
