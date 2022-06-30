@@ -7,6 +7,7 @@ import CompletedTasks from './components/CompletedTasks/CompletedTasks';
 import ToDo from './components/ToDo/ToDo';
 import Calender from './components/Calender/Calender';
 import NotFound from './components/NotFound/NotFound';
+import Edit from './components/Edit/Edit';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/completedTasks' element={<CompletedTasks></CompletedTasks>}></Route>
         <Route path='/todo' element={<ToDo></ToDo>}></Route>
         <Route path='/calender' element={<Calender></Calender>}></Route>
+        <Route path='/edit/:taskId' element={<Edit></Edit>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
      </div>

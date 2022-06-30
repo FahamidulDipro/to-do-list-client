@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 
 const ToDo = () => {
   const [toDoItem, setToDoItem] = useState([]);
-
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     fetch("http://localhost:5000/addTask", {

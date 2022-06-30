@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ToDoList = () => {
   const [toDoItems, setToDoItems] = useState([]);
@@ -7,11 +8,22 @@ const ToDoList = () => {
       .then((res) => res.json())
       .then((data) => setToDoItems(data));
   }, []);
-  const handleEdit = () => {
-    console.log("Edited");
+  const navigate = useNavigate();
+  const handleEdit = (id) => {
+    navigate(`/edit/${id}`);
   };
-  const handleDelete = () => {
-    console.log("Deleted");
+  const handleDelete = (id) => {
+    const taskForDelete = toDoItems.find((task) => task._id === id);
+    fetch(`http://localhost:5000/deleteTask/${taskForDelete._id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(taskForDelete),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+    window.location.reload();
   };
   return (
     <div className="overflow-x-auto">
@@ -32,7 +44,7 @@ const ToDoList = () => {
               <td>
                 <button
                   className="btn btn-sm bg-yellow-600 border-0"
-                  onClick={handleEdit}
+                  onClick={() => handleEdit(task?._id)}
                 >
                   Edit
                 </button>
@@ -41,7 +53,7 @@ const ToDoList = () => {
                 {" "}
                 <button
                   className="btn bg-red-600 text-white btn-sm border-0"
-                  onClick={handleDelete}
+                  onClick={() => handleDelete(task?._id)}
                 >
                   Delete
                 </button>
