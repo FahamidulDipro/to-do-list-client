@@ -17,10 +17,11 @@ const Edit = () => {
   // const [preloadedValue, setPreloadedValue] = useState([
   //   { todoItem: selectedTask?.todoItem },
   // ]);
+  console.log(selectedTask?.todoItem);
   const [data, setData] = useState(null);
   useEffect(() => {
-    setData(selectedTask?.toDoItem);
-  }, []);
+    setData(selectedTask);
+  }, [data]);
   // const preloadedValue = {
   //   toDoItem: selectedTask?.toDoItem,
   // };
