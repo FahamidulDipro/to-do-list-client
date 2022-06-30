@@ -1,11 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import Navigation from './components/Navigation/Navigation';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home/Home';
+import CompletedTasks from './components/CompletedTasks/CompletedTasks';
+import ToDo from './components/ToDo/ToDo';
+import Calender from './components/Calender/Calender';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
     <div className="App">
-   <h1>Heloo</h1>
-    </div>
+    
+      <Navigation></Navigation>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/completedTasks' element={<CompletedTasks></CompletedTasks>}></Route>
+        <Route path='/todo' element={<ToDo></ToDo>}></Route>
+        <Route path='/calender' element={<Calender></Calender>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
+      </Routes>
+     </div>
   );
 }
 
