@@ -7,6 +7,12 @@ const ToDoList = () => {
       .then((res) => res.json())
       .then((data) => setToDoItems(data));
   }, []);
+  const handleEdit = () => {
+    console.log("Edited");
+  };
+  const handleDelete = () => {
+    console.log("Deleted");
+  };
   return (
     <div className="overflow-x-auto">
       <table className="table w-full">
@@ -24,13 +30,19 @@ const ToDoList = () => {
               <th>{count + 1}</th>
               <td>{task?.todoItem}</td>
               <td>
-                <button className="btn btn-sm bg-yellow-600 border-0">
+                <button
+                  className="btn btn-sm bg-yellow-600 border-0"
+                  onClick={handleEdit}
+                >
                   Edit
                 </button>
               </td>
               <td>
                 {" "}
-                <button className="btn bg-red-600 text-white btn-sm border-0">
+                <button
+                  className="btn bg-red-600 text-white btn-sm border-0"
+                  onClick={handleDelete}
+                >
                   Delete
                 </button>
               </td>
