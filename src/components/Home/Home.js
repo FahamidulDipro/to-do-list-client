@@ -1,9 +1,11 @@
 import React from 'react';
+import ToDoList from '../ToDoList/ToDoList';
 
 const Home = () => {
     return (
         <div>
-            <h1>Homme</h1>
+            <ToDoList></ToDoList>
+            
         </div>
     );
 };
