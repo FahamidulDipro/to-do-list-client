@@ -28,7 +28,7 @@ const Navigation = () => {
     </>
   );
   return (
-    <div className="navbar  bg-primary sticky top-0 z-50">
+    <div className="navbar  bg-blue-700 text-white sticky top-0 z-50">
       <div className="navbar-start ">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -49,25 +49,19 @@ const Navigation = () => {
           </label>
           <ul
             tabIndex="0"
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-screen"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-blue-700 rounded-box w-screen"
           >
             {navItems}
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost normal-case text-xl font-bold">
-          Heavy Duty Tools
+          To Do List
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex  ">
         <ul className="menu menu-horizontal p-0 ">{navItems}</ul>
       </div>
       <div className="navbar-end lg:visible md:visible sm:invisible invisible w-full "></div>
-      <div className="navbar-end ">
-        <label
-          htmlFor="my-drawer-2"
-          className="btn btn-xs btn-primary drawer-button lg:invisible "
-        ></label>
-      </div>
     </div>
   );
 };
