@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const ToDo = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
   const onSubmit = (data) => {
     fetch("https://nameless-peak-49382.herokuapp.com/addTask", {
@@ -16,7 +16,7 @@ const ToDo = () => {
       .then((res) => res.json())
       .then((result) => console.log(result));
 
-    navigate("/");
+    reset();
 
     console.log(data);
   };

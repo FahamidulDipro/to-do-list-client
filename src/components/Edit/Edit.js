@@ -14,7 +14,7 @@ const Edit = () => {
 
   const selectedTask = toDoItems.find((item) => item._id === taskId);
   const navigate = useNavigate();
-  const { register, handleSubmit } = useForm({});
+  const { register, handleSubmit, reset } = useForm({});
   const onSubmit = (data) => {
     data.taskId = taskId;
     fetch("https://nameless-peak-49382.herokuapp.com/editTask", {
@@ -27,7 +27,7 @@ const Edit = () => {
       .then((res) => res.json())
       .then((result) => console.log(result));
 
-    navigate("/");
+    reset();
 
     console.log(data);
   };
