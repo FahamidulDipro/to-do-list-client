@@ -26,7 +26,9 @@ const Edit = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+
     navigate("/");
+
     console.log(data);
   };
   const selectedTaskName = selectedTask?.todoItem;

@@ -15,8 +15,9 @@ const ToDo = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
-    navigate("/");
 
+    navigate("/");
+    window.location.reload();
     console.log(data);
   };
   return (
