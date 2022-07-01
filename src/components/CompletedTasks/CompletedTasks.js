@@ -7,6 +7,7 @@ const CompletedTasks = () => {
           .then((res) => res.json())
           .then((data) => setCompletedTasks(data));
       }, []);
+      
     return (
         <div className='h-screen mt-20'>
           <div className="overflow-x-auto">

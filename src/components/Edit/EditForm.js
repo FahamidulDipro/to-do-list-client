@@ -44,7 +44,7 @@ const EditForm = ({ preloadedValue }) => {
               <input
                 {...register("todoItem")}
                 type="text"
-                //   placeholder={`${selectedTask?.todoItem}`}
+                // placeholder={`${selectedTask?.todoItem}`}
                 className="input input-bordered w-full max-w-xs"
               />
               <div className="card-actions justify-end">
