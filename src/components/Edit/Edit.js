@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { MdEdit } from "react-icons/md";
 const Edit = () => {
@@ -7,16 +7,17 @@ const Edit = () => {
   //Fetching tasks from database
   const [toDoItems, setToDoItems] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/todos")
+    fetch("https://nameless-peak-49382.herokuapp.com/todos")
       .then((res) => res.json())
       .then((data) => setToDoItems(data));
   }, []);
 
   const selectedTask = toDoItems.find((item) => item._id === taskId);
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({});
   const onSubmit = (data) => {
     data.taskId = taskId;
-    fetch("http://localhost:5000/editTask", {
+    fetch("https://nameless-peak-49382.herokuapp.com/editTask", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -25,6 +26,7 @@ const Edit = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+    navigate("/");
     console.log(data);
   };
   const selectedTaskName = selectedTask?.todoItem;

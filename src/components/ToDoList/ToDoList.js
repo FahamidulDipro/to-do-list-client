@@ -6,7 +6,7 @@ const ToDoList = () => {
   const [toDoItems, setToDoItems] = useState([]);
   const [completed, setCompleted] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:5000/todos")
+    fetch("https://nameless-peak-49382.herokuapp.com/todos")
       .then((res) => res.json())
       .then((data) => setToDoItems(data));
   }, []);
@@ -16,13 +16,16 @@ const ToDoList = () => {
   };
   const handleDelete = (id) => {
     const taskForDelete = toDoItems.find((task) => task._id === id);
-    fetch(`http://localhost:5000/deleteTask/${taskForDelete._id}`, {
-      method: "DELETE",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(taskForDelete),
-    })
+    fetch(
+      `https://nameless-peak-49382.herokuapp.com/deleteTask/${taskForDelete._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(taskForDelete),
+      }
+    )
       .then((res) => res.json())
       .then((result) => console.log(result));
     window.location.reload();
@@ -30,7 +33,7 @@ const ToDoList = () => {
   const handleCompleted = (id) => {
     const taskCompleted = toDoItems.find((task) => task._id === id);
     if (completed === true) {
-      fetch(`http://localhost:5000/completedTasks`, {
+      fetch(`https://nameless-peak-49382.herokuapp.com/completedTasks`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -43,13 +46,16 @@ const ToDoList = () => {
     } else {
       const taskForDelete = toDoItems.find((task) => task._id === id);
 
-      fetch(`http://localhost:5000/deleteFromCompleted/${taskForDelete._id}`, {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(taskForDelete),
-      })
+      fetch(
+        `https://nameless-peak-49382.herokuapp.com/deleteFromCompleted/${taskForDelete._id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(taskForDelete),
+        }
+      )
         .then((res) => res.json())
         .then((result) => console.log(result));
     }
@@ -73,14 +79,18 @@ const ToDoList = () => {
               <th>{count + 1}</th>
               <td>
                 <div className="form-control">
-                  <input
-                    type="checkbox"
-                    className="checkbox checkbox-accent"
-                    onChange={(e) => setCompleted(e.target.checked)}
-                    onClick={() => {
-                      handleCompleted(task?._id);
-                    }}
-                  />
+                  {completed ? (
+                    <input
+                      type="checkbox"
+                      className="checkbox checkbox-accent"
+                      onChange={(e) => setCompleted(e.target.checked)}
+                      onClick={() => {
+                        handleCompleted(task?._id);
+                      }}
+                    />
+                  ) : (
+                    <span>Completed</span>
+                  )}
                 </div>
               </td>
               <td>{task?.todoItem}</td>

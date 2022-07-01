@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 const ToDo = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addTask", {
+    fetch("https://nameless-peak-49382.herokuapp.com/addTask", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -13,6 +15,8 @@ const ToDo = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
+    navigate("/");
+
     console.log(data);
   };
   return (
