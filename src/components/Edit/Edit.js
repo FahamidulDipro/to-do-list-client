@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { MdEdit } from "react-icons/md";
+
 const Edit = () => {
   const { taskId } = useParams("taskId");
   //Fetching tasks from database
@@ -13,8 +13,8 @@ const Edit = () => {
   }, []);
 
   const selectedTask = toDoItems.find((item) => item._id === taskId);
-  const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm({});
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     data.taskId = taskId;
     fetch("https://nameless-peak-49382.herokuapp.com/editTask", {
@@ -26,9 +26,7 @@ const Edit = () => {
     })
       .then((res) => res.json())
       .then((result) => console.log(result));
-
     reset();
-
     console.log(data);
   };
   const selectedTaskName = selectedTask?.todoItem;
