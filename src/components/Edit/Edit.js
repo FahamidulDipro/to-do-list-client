@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import EditForm from "./EditForm";
 
 const Edit = () => {
   const { taskId } = useParams("taskId");
@@ -28,19 +27,17 @@ const Edit = () => {
       .then((result) => console.log(result));
     console.log(data);
   };
-  // const [preloadedValue, setPreloadedValue] = useState([
-  //   { todoItem: selectedTask?.todoItem },
-  // ]);
-  // console.log(selectedTask?.todoItem);
-  // const [data, setData] = useState(null);
-  // useEffect(() => {
-  //   setData(selectedTask);
-  // }, [data]);
-  // const preloadedValue = {
-  //   toDoItem: selectedTask?.toDoItem,
-  // };
+  const selectedTaskName = selectedTask?.todoItem;
+  const [task, setTask] = useState(selectedTaskName);
+  useEffect(() => {
+    setTask(selectedTaskName);
+  }, [selectedTaskName]);
 
-  // return <EditForm preloadedValue={data}></EditForm>;
+  const handleInputChange = (event) => {
+    console.log(event.target.value);
+    setTask(event.target.value);
+  };
+  console.log(task);
   return (
     <div className="h-screen mt-20">
       <div className="flex justify-center items-center mt-20">
@@ -51,8 +48,9 @@ const Edit = () => {
               <input
                 {...register("todoItem")}
                 type="text"
-                placeholder={`${selectedTask?.todoItem}`}
+                value={`${task}`}
                 className="input input-bordered w-full max-w-xs placeholder-black"
+                onChange={handleInputChange}
               />
               <div className="card-actions justify-end">
                 <button className="btn bg-blue-700 w-full mt-5" type="submit">
