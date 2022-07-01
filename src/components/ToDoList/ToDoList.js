@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MdEdit, MdDelete } from "react-icons/md";
 
 const ToDoList = () => {
   const [toDoItems, setToDoItems] = useState([]);
@@ -55,15 +56,15 @@ const ToDoList = () => {
     console.log(id);
   };
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto container mx-auto">
       <table className="table w-full">
-        <thead>
+        <thead className="text-white">
           <tr>
-            <th></th>
-            <th>Status</th>
-            <th>Tasks</th>
-            <th>Edit Task</th>
-            <th>Delete Task</th>
+            <th className="bg-black"></th>
+            <th className="bg-black">Complete Status</th>
+            <th className="bg-black">Tasks</th>
+            <th className="bg-black">Edit Task</th>
+            <th className="bg-black">Delete Task</th>
           </tr>
         </thead>
         <tbody>
@@ -85,19 +86,19 @@ const ToDoList = () => {
               <td>{task?.todoItem}</td>
               <td>
                 <button
-                  className="btn btn-sm bg-yellow-600 border-0"
+                  className="btn btn-sm bg-white text-blue-700 text-2xl border-0"
                   onClick={() => handleEdit(task?._id)}
                 >
-                  Edit
+                  <MdEdit className="mr-1"></MdEdit>
                 </button>
               </td>
               <td>
                 {" "}
                 <button
-                  className="btn bg-red-600 text-white btn-sm border-0"
+                  className="btn  text-red-600 bg-white btn-sm border-0 text-2xl"
                   onClick={() => handleDelete(task?._id)}
                 >
-                  Delete
+                  <MdDelete className="mr-1"></MdDelete>
                 </button>
               </td>
             </tr>

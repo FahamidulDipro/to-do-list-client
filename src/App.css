@@ -1,5 +1,16 @@
 .App {
   text-align: center;
+  background: linear-gradient(
+      rgba(235, 237, 254, 0.944),
+      rgba(232, 233, 248, 0.886)
+    ),
+    url("https://cms-assets.themuse.com/media/lead/_800x418_crop_center-center_82_none/22238.jpg?mtime=1568834549");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
 }
 
 .App-logo {

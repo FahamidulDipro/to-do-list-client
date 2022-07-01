@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import { MdEdit } from "react-icons/md";
 const Edit = () => {
   const { taskId } = useParams("taskId");
   //Fetching tasks from database
@@ -54,7 +54,7 @@ const Edit = () => {
               />
               <div className="card-actions justify-end">
                 <button className="btn bg-blue-700 w-full mt-5" type="submit">
-                  Add
+                  Update
                 </button>
               </div>
             </form>
